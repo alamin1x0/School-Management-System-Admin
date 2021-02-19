@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.admin_school">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/book"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/book"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Adminschool">
+        <activity android:name=".LoginActivity" android:theme="@style/Theme.MaterialComponents.NoActionBar">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+        </activity>
+        <activity
+            android:name=".DeleteNoticeActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AddTeacher"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".UpdateTeacherActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Uploadfaculty"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".UploadPdfActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".UploadImage"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".UploadNotice"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".MainActivity">
+
+        </activity>
+    </application>
+
+</manifest>
