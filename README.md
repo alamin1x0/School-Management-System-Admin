@@ -1,4 +1,4 @@
-<imag src ="https://github.com/msasakibalamin/School-Management-System-Admin-App/blob/main/admin2.png" />
+School-Management-System-Admin-App
 
 
 <img src="https://github.com/msasakibalamin/School-Management-System-Admin-App/blob/main/admin2.png" />
