@@ -50,6 +50,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
         holder.name.setText(item.getName());
         holder.phone.setText(item.getPhone());
         holder.post.setText(item.getPost());
+        holder.jon.setText(item.getPost());
 
         try {
             Picasso.get().load(item.getImage()).into(holder.imageView);
@@ -66,6 +67,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
                 intent.putExtra("name",item.getName());
                 intent.putExtra("phone",item.getPhone());
                 intent.putExtra("post",item.getPost());
+                intent.putExtra("jon",item.getJon());
                 intent.putExtra("image",item.getImage());
                 intent.putExtra("key",item.getKey());
                 intent.putExtra("category", category);
@@ -83,7 +85,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
 
     public class TeacherViewAdapter extends RecyclerView.ViewHolder {
 
-        private TextView name, phone, post;
+        private TextView name, phone, post, jon;
         private Button update;
         private ImageView imageView;
 
@@ -93,6 +95,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
             name = itemView.findViewById(R.id.teacherName);
             phone = itemView.findViewById(R.id.teacherPhone);
             post = itemView.findViewById(R.id.teacherPost);
+            jon = itemView.findViewById(R.id.teacherJon);
             imageView = itemView.findViewById(R.id.teacherImage);
             update = itemView.findViewById(R.id.teacherUpdate);
         }

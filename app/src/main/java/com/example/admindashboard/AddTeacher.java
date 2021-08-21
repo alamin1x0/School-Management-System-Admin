@@ -41,13 +41,13 @@ import es.dmoral.toasty.Toasty;
 public class AddTeacher extends AppCompatActivity {
 
     private ImageView addTeacherImage;
-    private EditText addTeacherName, addTeacherPhone, addTeacherPost;
+    private EditText addTeacherName, addTeacherPhone, addTeacherPost, addTeacherJon;
     private Spinner addTeacherCategory;
     private Button addTeacherBtn;
     private final int REQ = 1;
     private Bitmap bitmap = null;
     private String category;
-    private String name, phone, post, downloadUrl = "";
+    private String name, phone, post, jon, downloadUrl = "";
     private ProgressDialog pd;
 
     private StorageReference storageReference;
@@ -65,6 +65,8 @@ public class AddTeacher extends AppCompatActivity {
         addTeacherName = findViewById(R.id.addTeacherName);
         addTeacherPhone = findViewById(R.id.addTeacherPhone);
         addTeacherPost = findViewById(R.id.addTeacherPost);
+        addTeacherJon = findViewById(R.id.addTeacherJon);
+
         addTeacherCategory = findViewById(R.id.addTeacherCategory);
         addTeacherBtn = findViewById(R.id.addTeacherBtn);
 
@@ -111,6 +113,7 @@ public class AddTeacher extends AppCompatActivity {
         name = addTeacherName.getText().toString();
         phone = addTeacherPhone.getText().toString();
         post = addTeacherPost.getText().toString();
+        jon = addTeacherJon.getText().toString();
 
 
         if (name.isEmpty()){
@@ -122,6 +125,9 @@ public class AddTeacher extends AppCompatActivity {
         }else if (post.isEmpty()){
             addTeacherPost.setError("Empty");
             addTeacherPost.requestFocus();
+        }else if (jon.isEmpty()){
+            addTeacherJon.setError("Empty");
+            addTeacherJon.requestFocus();
         }else if (category.equals("Select Category")){
             Toasty.warning(this, "Please provide teacher category", Toasty.LENGTH_SHORT).show();
         }else if (bitmap == null){
@@ -175,7 +181,7 @@ public class AddTeacher extends AppCompatActivity {
         final String uniqueKey = dbRef.push().getKey();
 
 
-        TeacherData teacherData = new TeacherData(name, phone, post, downloadUrl, uniqueKey);
+        TeacherData teacherData = new TeacherData(name, phone, post, jon, downloadUrl, uniqueKey);
 
         dbRef.child(uniqueKey).setValue(teacherData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

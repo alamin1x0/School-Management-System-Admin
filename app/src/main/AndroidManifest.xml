@@ -10,15 +10,25 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/book"
+        android:icon="@mipmap/admin"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/book"
+        android:roundIcon="@mipmap/admin_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdminDashboard">
-        <activity android:name=".OtpActivity"></activity>
-        <activity android:name=".student.UpdateStudent" />
-        <activity android:name=".student.AddStudent" />
-        <activity android:name=".student.Uploadstudent" />
+        <activity android:name=".otp.OtpVerifyActivity"/>
+        <activity android:name=".otp.OtpProfileAactivity" />
+        <activity android:name=".otp.OtpMainActivity" />
+        <activity android:name=".OtpActivity" />
+        <activity
+            android:name=".student.UpdateStudent"
+            android:parentActivityName=".student.Uploadstudent" />
+        <activity
+            android:name=".student.AddStudent"
+            android:parentActivityName=".student.Uploadstudent" />
+        <activity
+            android:name=".student.Uploadstudent"
+            android:parentActivityName=".MainActivity" />
+
 
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -28,6 +38,8 @@
             </intent-filter>
         </activity>
 
+
+
         <activity
             android:name=".DeleteNoticeActivity"
             android:parentActivityName=".MainActivity" />
@@ -36,7 +48,7 @@
             android:parentActivityName=".Uploadfaculty" />
         <activity
             android:name=".UpdateTeacherActivity"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Uploadfaculty" />
         <activity
             android:name=".Uploadfaculty"
             android:parentActivityName=".MainActivity" />

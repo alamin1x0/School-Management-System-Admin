@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="শিক্ষকের ফোন"
-                android:inputType="number"/>
+                android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -61,6 +61,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="শিক্ষকের পোস্ট"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addTeacherJon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="জয়েন ডেট"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 

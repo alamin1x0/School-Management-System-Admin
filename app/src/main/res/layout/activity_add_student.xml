@@ -31,7 +31,7 @@
                 android:id="@+id/addStudnetName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Student Name"
+                android:hint=" স্টুডেন্ট  নাম"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -45,8 +45,8 @@
                 android:id="@+id/addStudnetPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Student Roll"
-                android:inputType="number"/>
+                android:hint="  স্টুডেন্ট  রোল"
+                android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -60,7 +60,7 @@
                 android:id="@+id/addStudnetAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Student Address"
+                android:hint=" স্টুডেন্ট  অ্যাড্রেস"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,7 +81,7 @@
             android:id="@+id/addStudentBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Student "
+            android:text=" এড  স্টুডেন্ট "
             android:layout_marginTop="16dp"
             android:textAllCaps="false"/>
 

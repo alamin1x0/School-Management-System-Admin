@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Class 6"
+                android:text="ক্লাস - ৬"
                 android:gravity="center"
                 android:textSize="30sp"
                 android:textColor="@color/departmentColor"
@@ -69,7 +69,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Class 7"
+                android:text="ক্লাস - ৭"
                 android:gravity="center"
                 android:textSize="30sp"
                 android:textColor="@color/departmentColor"
@@ -103,7 +103,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Class 8"
+                android:text="ক্লাস - ৮"
                 android:gravity="center"
                 android:textSize="30sp"
                 android:textColor="@color/departmentColor"
@@ -138,7 +138,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Class 9"
+                android:text="ক্লাস - ৯"
                 android:gravity="center"
                 android:textSize="30sp"
                 android:textColor="@color/departmentColor"
@@ -173,7 +173,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Class 10"
+                android:text="ক্লাস - ১০"
                 android:gravity="center"
                 android:textSize="30sp"
                 android:textColor="@color/departmentColor"

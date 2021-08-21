@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,8 +20,8 @@
         android:layout_margin="5dp">
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_margin="10dp"
             app:cardElevation="5dp"
             android:id="@+id/addNotice">
@@ -58,8 +63,8 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_margin="10dp"
             app:cardElevation="5dp"
             android:id="@+id/addGalleryImage">
@@ -107,8 +112,8 @@
         android:gravity="center"
         android:layout_margin="5dp">
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_margin="10dp"
             app:cardElevation="5dp"
             android:id="@+id/addEbook">
@@ -146,8 +151,8 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_margin="10dp"
             android:id="@+id/faculty"
             app:cardElevation="5dp">
@@ -194,8 +199,8 @@
         android:gravity="center"
         android:layout_margin="5dp">
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_margin="10dp"
             app:cardElevation="5dp"
             android:id="@+id/news">
@@ -235,8 +240,8 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_margin="10dp"
             android:id="@+id/student"
             app:cardElevation="5dp">
@@ -286,8 +291,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/delete"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_margin="10dp"
             app:cardElevation="5dp">
 
@@ -327,8 +332,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/logout"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_margin="10dp"
             app:cardElevation="5dp">
 
@@ -368,5 +373,7 @@
 
     </LinearLayout>
 
+    </LinearLayout>
 
-</LinearLayout>
+
+</ScrollView>

@@ -18,7 +18,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1.5"
                 android:orientation="vertical"
                 android:paddingLeft="12dp"
@@ -52,8 +52,13 @@
 
 
 
-
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/teacherJon"
+                    android:text="জয়েন ডেট"
+                    android:textColor="@color/textColor"
+                    android:textSize="18sp"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/teacherUpdate"
@@ -61,9 +66,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="3dp"
-                    android:text="আপডেট ইনফো" />
+                    android:text="আপডেট" />
 
             </LinearLayout>
+
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/teacherImage"

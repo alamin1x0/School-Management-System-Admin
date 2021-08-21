@@ -24,7 +24,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Student Name"
+            android:hint="স্টুডেন্ট  নাম"
             android:layout_marginTop="16dp"
             android:inputType="text"
             android:id="@+id/updateStudentName"/>
@@ -40,8 +40,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Student Roll"
-            android:inputType="number"
+            android:hint=" স্টুডেন্ট  রোল"
+            android:inputType="text"
             android:layout_marginTop="16dp"
             android:id="@+id/updateStudentPhone"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -56,7 +56,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Student Address"
+            android:hint=" স্টুডেন্ট  অ্যাড্রেস"
             android:inputType="text"
             android:layout_marginTop="16dp"
             android:id="@+id/updateStudentAddress"/>
@@ -73,7 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Update"
+            android:text=" আপডেট "
             android:textAllCaps="false"
             android:layout_marginRight="8dp"
             android:id="@+id/updateStudentBtn"/>
@@ -84,7 +84,7 @@
             android:layout_height="match_parent"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
-            android:text="Delete"
+            android:text=" ডিলিট"
             android:textAllCaps="false" />
 
 

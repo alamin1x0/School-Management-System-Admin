@@ -37,10 +37,10 @@ import es.dmoral.toasty.Toasty;
 public class UpdateTeacherActivity extends AppCompatActivity {
 
     private ImageView updateTeacherImage;
-    private EditText updateTeacherName, updateTeacherEmail, updateTeacherPost;
+    private EditText updateTeacherName, updateTeacherEmail, updateTeacherPost, updateTeacherJon;
     private Button updateTeacherBtn, updateDeleteBtn;
 
-    private String name, phone, image, post;
+    private String name, phone, image, post, jon;
     private final int REQ = 1;
     private Bitmap bitmap = null;
     private ProgressDialog pd;
@@ -61,6 +61,7 @@ public class UpdateTeacherActivity extends AppCompatActivity {
         phone = getIntent().getStringExtra("phone");
         image = getIntent().getStringExtra("image");
         post = getIntent().getStringExtra("post");
+        jon = getIntent().getStringExtra("jon");
 
         uniqueKey = getIntent().getStringExtra("key");
         category = getIntent().getStringExtra("category");
@@ -69,6 +70,7 @@ public class UpdateTeacherActivity extends AppCompatActivity {
         updateTeacherName = findViewById(R.id.updateTeacherName);
         updateTeacherEmail = findViewById(R.id.updateTeacherEmail);
         updateTeacherPost = findViewById(R.id.updateTeacherPost);
+        updateTeacherJon = findViewById(R.id.updateTeacherJon);
         updateTeacherBtn = findViewById(R.id.updateTeacherBtn);
         updateDeleteBtn = findViewById(R.id.updateDeleteBtn);
 
@@ -88,6 +90,7 @@ public class UpdateTeacherActivity extends AppCompatActivity {
         updateTeacherEmail.setText(phone);
         updateTeacherName.setText(name);
         updateTeacherPost.setText(post);
+        updateTeacherJon.setText(jon);
 
         updateTeacherImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +106,7 @@ public class UpdateTeacherActivity extends AppCompatActivity {
                 name = updateTeacherName.getText().toString();
                 phone = updateTeacherEmail.getText().toString();
                 post = updateTeacherPost.getText().toString();
+                jon = updateTeacherJon.getText().toString();
                 checkValidation();
             }
         });
@@ -145,6 +149,9 @@ public class UpdateTeacherActivity extends AppCompatActivity {
         }else if (phone.isEmpty()){
             updateTeacherEmail.setError("Empty");
             updateTeacherEmail.requestFocus();
+        }else if (jon.isEmpty()){
+            updateTeacherJon.setError("Empty");
+            updateTeacherJon.requestFocus();
         }else if (bitmap == null){
             updateData(image);
         }else {
@@ -158,6 +165,7 @@ public class UpdateTeacherActivity extends AppCompatActivity {
         hp.put("name", name);
         hp.put("phone", phone);
         hp.put("post", post);
+        hp.put("jon", jon);
         hp.put("image", s);
 
 

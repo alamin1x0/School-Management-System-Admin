@@ -1,20 +1,20 @@
 package com.example.admindashboard;
 
-
-
 public class TeacherData {
-    private String name, phone, post,  image, key;
+    private String name, phone, post, jon, image, key;
 
     public TeacherData() {
     }
 
-    public TeacherData(String name, String phone, String post, String image, String key) {
+    public TeacherData(String name, String phone, String post, String jon, String image, String key) {
         this.name = name;
         this.phone = phone;
         this.post = post;
+        this.jon = jon;
         this.image = image;
         this.key = key;
     }
+
 
     public String getName() {
         return name;
@@ -32,13 +32,20 @@ public class TeacherData {
         this.phone = phone;
     }
 
-
     public String getPost() {
         return post;
     }
 
     public void setPost(String post) {
         this.post = post;
+    }
+
+    public String getJon() {
+        return jon;
+    }
+
+    public void setJon(String jon) {
+        this.jon = jon;
     }
 
     public String getImage() {

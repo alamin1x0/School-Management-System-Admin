@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().setTitle("Admin Dashboard");
 
 
         sharedPreferences = this.getSharedPreferences("login", MODE_PRIVATE);
