@@ -1,4 +1,4 @@
-package com.example.admindashboard;
+package com.example.admindashboard.otp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.admindashboard.MainActivity;
+import com.example.admindashboard.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -86,7 +88,7 @@ public class OtpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             //here opens new activity
                             Toast.makeText(OtpActivity.this, "Login Sucess", Toast.LENGTH_SHORT).show();
-                            Intent intent=new Intent(OtpActivity.this,MainActivity.class);
+                            Intent intent=new Intent(OtpActivity.this, MainActivity.class);
                             startActivity(intent);
 
 

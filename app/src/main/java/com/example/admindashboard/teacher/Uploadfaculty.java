@@ -1,4 +1,4 @@
-package com.example.admindashboard;
+package com.example.admindashboard.teacher;
 
 
 
@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.admindashboard.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -66,7 +67,7 @@ public class Uploadfaculty extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Uploadfaculty.this,AddTeacher.class));
+                startActivity(new Intent(Uploadfaculty.this, AddTeacher.class));
             }
         });
     }

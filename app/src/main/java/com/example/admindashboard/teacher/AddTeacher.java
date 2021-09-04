@@ -1,4 +1,4 @@
-package com.example.admindashboard;
+package com.example.admindashboard.teacher;
 
 
 
@@ -19,8 +19,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
+import com.example.admindashboard.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -33,15 +33,13 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 import es.dmoral.toasty.Toasty;
 
 public class AddTeacher extends AppCompatActivity {
 
     private ImageView addTeacherImage;
-    private EditText addTeacherName, addTeacherPhone, addTeacherPost, addTeacherJon;
+    private EditText addTeacherName, addTeacherPhone, addTeacherPost, addJon;
     private Spinner addTeacherCategory;
     private Button addTeacherBtn;
     private final int REQ = 1;
@@ -65,7 +63,7 @@ public class AddTeacher extends AppCompatActivity {
         addTeacherName = findViewById(R.id.addTeacherName);
         addTeacherPhone = findViewById(R.id.addTeacherPhone);
         addTeacherPost = findViewById(R.id.addTeacherPost);
-        addTeacherJon = findViewById(R.id.addTeacherJon);
+        addJon = findViewById(R.id.addJon);
 
         addTeacherCategory = findViewById(R.id.addTeacherCategory);
         addTeacherBtn = findViewById(R.id.addTeacherBtn);
@@ -113,7 +111,7 @@ public class AddTeacher extends AppCompatActivity {
         name = addTeacherName.getText().toString();
         phone = addTeacherPhone.getText().toString();
         post = addTeacherPost.getText().toString();
-        jon = addTeacherJon.getText().toString();
+        jon = addJon.getText().toString();
 
 
         if (name.isEmpty()){
@@ -126,8 +124,8 @@ public class AddTeacher extends AppCompatActivity {
             addTeacherPost.setError("Empty");
             addTeacherPost.requestFocus();
         }else if (jon.isEmpty()){
-            addTeacherJon.setError("Empty");
-            addTeacherJon.requestFocus();
+            addJon.setError("Empty");
+            addJon.requestFocus();
         }else if (category.equals("Select Category")){
             Toasty.warning(this, "Please provide teacher category", Toasty.LENGTH_SHORT).show();
         }else if (bitmap == null){

@@ -1,4 +1,4 @@
-package com.example.admindashboard;
+package com.example.admindashboard.teacher;
 
 public class TeacherData {
     private String name, phone, post, jon, image, key;

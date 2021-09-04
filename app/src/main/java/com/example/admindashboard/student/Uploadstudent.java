@@ -12,9 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.admindashboard.R;
-import com.example.admindashboard.TeacherAdapter;
-import com.example.admindashboard.TeacherData;
-import com.example.admindashboard.Uploadfaculty;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

@@ -18,7 +18,7 @@
         <activity android:name=".otp.OtpVerifyActivity"/>
         <activity android:name=".otp.OtpProfileAactivity" />
         <activity android:name=".otp.OtpMainActivity" />
-        <activity android:name=".OtpActivity" />
+        <activity android:name=".otp.OtpActivity" />
         <activity
             android:name=".student.UpdateStudent"
             android:parentActivityName=".student.Uploadstudent" />
@@ -30,7 +30,7 @@
             android:parentActivityName=".MainActivity" />
 
 
-        <activity android:name=".LoginActivity">
+        <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,25 +41,25 @@
 
 
         <activity
-            android:name=".DeleteNoticeActivity"
+            android:name=".notice.DeleteNoticeActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".AddTeacher"
-            android:parentActivityName=".Uploadfaculty" />
+            android:name=".teacher.AddTeacher"
+            android:parentActivityName=".teacher.Uploadfaculty" />
         <activity
-            android:name=".UpdateTeacherActivity"
-            android:parentActivityName=".Uploadfaculty" />
+            android:name=".teacher.UpdateTeacherActivity"
+            android:parentActivityName=".teacher.Uploadfaculty" />
         <activity
-            android:name=".Uploadfaculty"
+            android:name=".teacher.Uploadfaculty"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".UploadPdfActivity"
+            android:name=".ebook.UploadPdfActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".UploadImage"
+            android:name=".image.UploadImage"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".UploadNotice"
+            android:name=".notice.UploadNotice"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity" />
     </application>

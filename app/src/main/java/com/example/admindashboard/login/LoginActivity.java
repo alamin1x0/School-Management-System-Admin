@@ -1,4 +1,4 @@
-package com.example.admindashboard;
+package com.example.admindashboard.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,9 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.admindashboard.MainActivity;
+import com.example.admindashboard.R;
 
 import es.dmoral.toasty.Toasty;
 
@@ -92,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void openDash() {
 
-        startActivity(new Intent(LoginActivity.this,MainActivity.class));
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
         finish();
     }
 }

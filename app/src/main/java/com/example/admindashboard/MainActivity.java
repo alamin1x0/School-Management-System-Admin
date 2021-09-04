@@ -13,10 +13,14 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Toast;
 
+import com.example.admindashboard.ebook.UploadPdfActivity;
+import com.example.admindashboard.image.UploadImage;
+import com.example.admindashboard.login.LoginActivity;
+import com.example.admindashboard.notice.DeleteNoticeActivity;
+import com.example.admindashboard.notice.UploadNotice;
 import com.example.admindashboard.student.Uploadstudent;
+import com.example.admindashboard.teacher.Uploadfaculty;
 
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
 
@@ -91,23 +95,23 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         Intent intent;
         switch (view.getId()){
             case R.id.addNotice:
-                intent = new Intent(MainActivity.this,UploadNotice.class);
+                intent = new Intent(MainActivity.this, UploadNotice.class);
                 startActivity(intent);
                 break;
 
             case R.id.addGalleryImage:
-                intent = new Intent(MainActivity.this,UploadImage.class);
+                intent = new Intent(MainActivity.this, UploadImage.class);
                 startActivity(intent);
                 break;
 
 
             case R.id.addEbook:
-                intent = new Intent(MainActivity.this,UploadPdfActivity.class);
+                intent = new Intent(MainActivity.this, UploadPdfActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.faculty:
-                intent = new Intent(MainActivity.this,Uploadfaculty.class);
+                intent = new Intent(MainActivity.this, Uploadfaculty.class);
                 startActivity(intent);
                 break;
 
@@ -120,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
 
             case R.id.delete:
-                intent = new Intent(MainActivity.this,DeleteNoticeActivity.class);
+                intent = new Intent(MainActivity.this, DeleteNoticeActivity.class);
                 startActivity(intent);
                 break;
 
