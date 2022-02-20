@@ -1,4 +1,4 @@
-package com.example.admindashboard.ebook;
+package com.example.admindashboard.activity.ebook;
 
 
 import androidx.annotation.NonNull;

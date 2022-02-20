@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:padding="16dp"
     android:layout_height="match_parent"
-    tools:context=".ebook.UploadPdfActivity">
+    tools:context=".activity.ebook.UploadPdfActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

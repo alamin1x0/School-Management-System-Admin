@@ -14,13 +14,13 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.admindashboard.ebook.UploadPdfActivity;
-import com.example.admindashboard.image.UploadImage;
-import com.example.admindashboard.login.LoginActivity;
-import com.example.admindashboard.notice.DeleteNoticeActivity;
-import com.example.admindashboard.notice.UploadNotice;
-import com.example.admindashboard.student.Uploadstudent;
-import com.example.admindashboard.teacher.Uploadfaculty;
+import com.example.admindashboard.activity.ebook.UploadPdfActivity;
+import com.example.admindashboard.activity.image.UploadImage;
+import com.example.admindashboard.activity.login.LoginActivity;
+import com.example.admindashboard.activity.notice.DeleteNoticeActivity;
+import com.example.admindashboard.activity.notice.UploadNotice;
+import com.example.admindashboard.activity.student.Uploadstudent;
+import com.example.admindashboard.activity.teacher.Uploadfaculty;
 
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
 

@@ -1,4 +1,4 @@
-package com.example.admindashboard.student;
+package com.example.admindashboard.activity.student;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

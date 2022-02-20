@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -15,22 +14,27 @@
         android:roundIcon="@mipmap/admin_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdminDashboard">
-        <activity android:name=".otp.OtpVerifyActivity"/>
-        <activity android:name=".otp.OtpProfileAactivity" />
-        <activity android:name=".otp.OtpMainActivity" />
-        <activity android:name=".otp.OtpActivity" />
+        <activity android:name=".activity.otp.OtpVerifyActivity" />
+        <activity android:name=".activity.otp.OtpProfileAactivity" />
+        <activity android:name=".activity.otp.OtpMainActivity" />
+        <activity android:name=".activity.otp.OtpActivity" />
         <activity
-            android:name=".student.UpdateStudent"
-            android:parentActivityName=".student.Uploadstudent" />
+            android:name=".activity.student.UpdateStudent"
+            android:parentActivityName=".activity.student.Uploadstudent"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".student.AddStudent"
-            android:parentActivityName=".student.Uploadstudent" />
+            android:name=".activity.student.AddStudent"
+            android:parentActivityName=".activity.student.Uploadstudent"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".student.Uploadstudent"
-            android:parentActivityName=".MainActivity" />
+            android:name=".activity.student.Uploadstudent"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
 
 
-        <activity android:name=".login.LoginActivity">
+        <activity
+            android:name=".activity.login.LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,28 +43,34 @@
         </activity>
 
 
-
         <activity
-            android:name=".notice.DeleteNoticeActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".activity.notice.DeleteNoticeActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".teacher.AddTeacher"
-            android:parentActivityName=".teacher.Uploadfaculty" />
+            android:name=".activity.teacher.AddTeacher"
+            android:parentActivityName=".activity.teacher.Uploadfaculty"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".teacher.UpdateTeacherActivity"
-            android:parentActivityName=".teacher.Uploadfaculty" />
+            android:name=".activity.teacher.UpdateTeacherActivity"
+            android:parentActivityName=".activity.teacher.Uploadfaculty"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".teacher.Uploadfaculty"
-            android:parentActivityName=".MainActivity" />
+            android:name=".activity.teacher.Uploadfaculty"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".ebook.UploadPdfActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".activity.ebook.UploadPdfActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".image.UploadImage"
-            android:parentActivityName=".MainActivity" />
+            android:name=".activity.image.UploadImage"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".notice.UploadNotice"
-            android:parentActivityName=".MainActivity" />
+            android:name=".activity.notice.UploadNotice"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".MainActivity" />
     </application>
 

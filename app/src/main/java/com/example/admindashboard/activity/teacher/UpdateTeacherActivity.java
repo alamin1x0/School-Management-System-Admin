@@ -1,4 +1,5 @@
-package com.example.admindashboard.student;
+package com.example.admindashboard.activity.teacher;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,13 +33,15 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class UpdateStudent extends AppCompatActivity {
+import es.dmoral.toasty.Toasty;
 
-    private ImageView updateStudentImage;
-    private EditText updateStudentName, updateStudentPhone, updateStudentAddress;
-    private Button updateStudentBtn, updateDeleteBtn;
+public class UpdateTeacherActivity extends AppCompatActivity {
 
-    private String name, phone, image, address;
+    private ImageView updateTeacherImage;
+    private EditText updateTeacherName, updateTeacherEmail, updateTeacherPost, updateTeacherJon;
+    private Button updateTeacherBtn, updateDeleteBtn;
+
+    private String name, phone, image, post, jon;
     private final int REQ = 1;
     private Bitmap bitmap = null;
     private ProgressDialog pd;
@@ -51,58 +54,60 @@ public class UpdateStudent extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_student);
-
+        setContentView(R.layout.activity_update_teacher);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Update Student");
-
+        getSupportActionBar().setTitle("Update Teacher");
 
         name = getIntent().getStringExtra("name");
         phone = getIntent().getStringExtra("phone");
         image = getIntent().getStringExtra("image");
-        address = getIntent().getStringExtra("address");
+        post = getIntent().getStringExtra("post");
+        jon = getIntent().getStringExtra("jon");
 
         uniqueKey = getIntent().getStringExtra("key");
         category = getIntent().getStringExtra("category");
 
-
-        updateStudentImage = findViewById(R.id.updateStudentImage);
-        updateStudentName = findViewById(R.id.updateStudentName);
-        updateStudentPhone = findViewById(R.id.updateStudentPhone);
-        updateStudentAddress = findViewById(R.id.updateStudentAddress);
-
-        updateStudentBtn = findViewById(R.id.updateStudentBtn);
+        updateTeacherImage = findViewById(R.id.updateTeacherImage);
+        updateTeacherName = findViewById(R.id.updateTeacherName);
+        updateTeacherEmail = findViewById(R.id.updateTeacherEmail);
+        updateTeacherPost = findViewById(R.id.updateTeacherPost);
+        updateTeacherJon = findViewById(R.id.updateTeacherJon);
+        updateTeacherBtn = findViewById(R.id.updateTeacherBtn);
         updateDeleteBtn = findViewById(R.id.updateDeleteBtn);
 
         pd = new ProgressDialog(this);
 
-        reference = FirebaseDatabase.getInstance().getReference().child("student");
+        reference = FirebaseDatabase.getInstance().getReference().child("teacher");
         storageReference = FirebaseStorage.getInstance().getReference();
 
+
+
         try {
-            Picasso.get().load(image).into(updateStudentImage);
-        } catch (Exception e) {
+            Picasso.get().load(image).into(updateTeacherImage);
+        }catch (Exception e){
             e.printStackTrace();
         }
 
-        updateStudentPhone.setText(phone);
-        updateStudentName.setText(name);
-        updateStudentAddress.setText(address);
+        updateTeacherEmail.setText(phone);
+        updateTeacherName.setText(name);
+        updateTeacherPost.setText(post);
+        updateTeacherJon.setText(jon);
 
-
-        updateStudentImage.setOnClickListener(new View.OnClickListener() {
+        updateTeacherImage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 openGallery();
             }
         });
 
-        updateStudentBtn.setOnClickListener(new View.OnClickListener() {
+        updateTeacherBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                name = updateStudentName.getText().toString();
-                phone = updateStudentPhone.getText().toString();
-                address = updateStudentAddress.getText().toString();
+            public void onClick(View view) {
+
+                name = updateTeacherName.getText().toString();
+                phone = updateTeacherEmail.getText().toString();
+                post = updateTeacherPost.getText().toString();
+                jon = updateTeacherJon.getText().toString();
                 checkValidation();
             }
         });
@@ -113,17 +118,15 @@ public class UpdateStudent extends AppCompatActivity {
                 deleteData();
             }
         });
-
     }
-
 
     private void deleteData() {
         reference.child(category).child(uniqueKey).removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(UpdateStudent.this, "Student Deleted Successfully", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(UpdateStudent.this, Uploadstudent.class);
+                        Toasty.success(UpdateTeacherActivity.this, "Teacher Deleted Successfully", Toasty.LENGTH_SHORT).show();
+                        Intent intent = new Intent(UpdateTeacherActivity.this,Uploadfaculty.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
 
@@ -131,7 +134,7 @@ public class UpdateStudent extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(UpdateStudent.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                Toasty.error(UpdateTeacherActivity.this, "Something went wrong", Toasty.LENGTH_SHORT).show();
             }
         });
     }
@@ -139,14 +142,17 @@ public class UpdateStudent extends AppCompatActivity {
     private void checkValidation() {
 
         if (name.isEmpty()){
-            updateStudentName.setError("Empty");
-            updateStudentName.requestFocus();
-        }else if (address.isEmpty()){
-            updateStudentAddress.setError("Empty");
-            updateStudentAddress.requestFocus();
+            updateTeacherName.setError("Empty");
+            updateTeacherName.requestFocus();
+        }else if (post.isEmpty()){
+            updateTeacherPost.setError("Empty");
+            updateTeacherPost.requestFocus();
         }else if (phone.isEmpty()){
-            updateStudentPhone.setError("Empty");
-            updateStudentPhone.requestFocus();
+            updateTeacherEmail.setError("Empty");
+            updateTeacherEmail.requestFocus();
+        }else if (jon.isEmpty()){
+            updateTeacherJon.setError("Empty");
+            updateTeacherJon.requestFocus();
         }else if (bitmap == null){
             updateData(image);
         }else {
@@ -154,33 +160,31 @@ public class UpdateStudent extends AppCompatActivity {
         }
     }
 
-
-
     private void updateData(String s) {
 
         HashMap hp = new HashMap();
         hp.put("name", name);
         hp.put("phone", phone);
-        hp.put("address", address);
+        hp.put("post", post);
+        hp.put("jon", jon);
         hp.put("image", s);
 
 
         reference.child(category).child(uniqueKey).updateChildren(hp).addOnSuccessListener(new OnSuccessListener() {
             @Override
             public void onSuccess(Object o) {
-                Toast.makeText(UpdateStudent.this, "Student Updated Successfully", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(UpdateStudent.this,Uploadstudent.class);
+                Toast.makeText(UpdateTeacherActivity.this, "Teacher Updated Successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(UpdateTeacherActivity.this,Uploadfaculty.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(UpdateStudent.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                Toasty.error(UpdateTeacherActivity.this, "Something went wrong", Toasty.LENGTH_SHORT).show();
             }
         });
     }
-
 
     private void uploadImage() {
         pd.setMessage("Uploading......");
@@ -189,9 +193,9 @@ public class UpdateStudent extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.JPEG,50,baos);
         byte[] finalimg = baos.toByteArray();
         final StorageReference filePath;
-        filePath = storageReference.child("Students").child(finalimg+"jpg");
+        filePath = storageReference.child("Teachers").child(finalimg+"jpg");
         final UploadTask uploadTask = filePath.putBytes(finalimg);
-        uploadTask.addOnCompleteListener(UpdateStudent.this, new OnCompleteListener<UploadTask.TaskSnapshot>() {
+        uploadTask.addOnCompleteListener(UpdateTeacherActivity.this, new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 if (task.isSuccessful()){
@@ -210,7 +214,7 @@ public class UpdateStudent extends AppCompatActivity {
                     });
                 }else {
 //                    pd.dismiss();
-                    Toast.makeText(UpdateStudent.this, "Something went wrong", Toast.LENGTH_LONG).show();
+                    Toasty.error(UpdateTeacherActivity.this, "Something went wrong", Toasty.LENGTH_LONG).show();
                 }
 
             }
@@ -233,8 +237,7 @@ public class UpdateStudent extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            updateStudentImage.setImageBitmap(bitmap);
+            updateTeacherImage.setImageBitmap(bitmap);
         }
     }
-
 }

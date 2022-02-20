@@ -1,4 +1,4 @@
-package com.example.admindashboard.offlinedata;
+package com.example.admindashboard.activity.offlinedata;
 
 import android.app.Application;
 

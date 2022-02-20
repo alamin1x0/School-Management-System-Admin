@@ -1,4 +1,4 @@
-package com.example.admindashboard.notice;
+package com.example.admindashboard.activity.notice;
 
 
 

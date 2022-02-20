@@ -1,4 +1,4 @@
-package com.example.admindashboard.login;
+package com.example.admindashboard.activity.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 

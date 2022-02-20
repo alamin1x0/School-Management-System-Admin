@@ -1,5 +1,4 @@
-package com.example.admindashboard.notice;
-
+package com.example.admindashboard.activity.image;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,9 +12,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.example.admindashboard.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,81 +31,93 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 import es.dmoral.toasty.Toasty;
 
-public class UploadNotice extends AppCompatActivity  {
+public class UploadImage extends AppCompatActivity {
 
-    private CardView addImage;
-    private ImageView noticeImageView;
-    private EditText noticeTitle;
-    private Button uploadNoticeBtn;
+    private Spinner imageCategory;
+    private CardView selectImage;
+    private Button uploadImage;
+    private ImageView galleryImageView;
 
-
+    private String category;
     private final int REQ = 1;
     private Bitmap bitmap;
-    private DatabaseReference reference,dbRef;
+    ProgressDialog pd;
+
+    private DatabaseReference reference;
     private StorageReference storageReference;
-    String downloadUrl = "";
-    private ProgressDialog pd;
-
-
-
+    String downloadUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_upload_notice);
+        setContentView(R.layout.activity_upload_image);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Notice");
-
-        reference = FirebaseDatabase.getInstance().getReference();
-        storageReference = FirebaseStorage.getInstance().getReference();
-
-        pd = new ProgressDialog(this);
-
-        addImage = findViewById(R.id.addImage);
-        noticeImageView = findViewById(R.id.noticeImageView);
-        noticeTitle = findViewById(R.id.noticeTitle);
-        uploadNoticeBtn = findViewById(R.id.uploadNoticeBtn);
+        getSupportActionBar().setTitle("Image");
 
 
+        selectImage = findViewById(R.id.addGalleryImage);
+        imageCategory = findViewById(R.id.image_category);
+        uploadImage = findViewById(R.id.uploadImageBtn);
+        galleryImageView = findViewById(R.id.galleryImageView);
 
-        addImage.setOnClickListener(new View.OnClickListener() {
+        reference = FirebaseDatabase.getInstance().getReference().child("gallery");
+        storageReference = FirebaseStorage.getInstance().getReference().child("gallery");
+
+        pd  = new ProgressDialog(this);
+
+
+        String[] items = new String[]{"Select Category","Convocation","Independence Day","Other Events"};
+        imageCategory.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,items));
+
+        imageCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                category = imageCategory.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
+        selectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openGallery();
             }
         });
 
-        uploadNoticeBtn.setOnClickListener(new View.OnClickListener() {
+        uploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (noticeTitle.getText().toString().isEmpty()){
-                    noticeTitle.setError("Empty");
-                    noticeTitle.requestFocus();
-                }else if (bitmap == null){
-                    uploadData();
+                if (bitmap == null){
+                    Toasty.success(UploadImage.this, "Please Upload Image", Toasty.LENGTH_SHORT).show();
+                }else if (category.equals("Select Category")){
+                    Toasty.error(UploadImage.this, "Please select Image Category", Toasty.LENGTH_SHORT).show();
                 }else {
+                    pd.setMessage("Uploading....");
+                    pd.show();
                     uploadImage();
                 }
+
             }
         });
-
     }
 
     private void uploadImage() {
-        pd.setMessage("Uploading......");
-        pd.show();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,50,baos);
         byte[] finalimg = baos.toByteArray();
         final StorageReference filePath;
-        filePath = storageReference.child("Notice").child(finalimg+"jpg");
+        filePath = storageReference.child(finalimg+"jpg");
         final UploadTask uploadTask = filePath.putBytes(finalimg);
-        uploadTask.addOnCompleteListener(UploadNotice.this, new OnCompleteListener<UploadTask.TaskSnapshot>() {
+        uploadTask.addOnCompleteListener(UploadImage.this, new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 if (task.isSuccessful()){
@@ -123,53 +136,36 @@ public class UploadNotice extends AppCompatActivity  {
                     });
                 }else {
                     pd.dismiss();
-                    Toasty.error(UploadNotice.this, "Something went wrong", Toasty.LENGTH_LONG).show();
+                    Toasty.error(UploadImage.this, "Something went wrong", Toasty.LENGTH_LONG).show();
                 }
 
             }
         });
 
-
     }
+
     private void uploadData() {
 
-        dbRef = reference.child("Notice");
-        final String uniqueKey = dbRef.push().getKey();
-
-        String title = noticeTitle.getText().toString();
-
-        Calendar calForDate = Calendar.getInstance();
-        SimpleDateFormat currentDate = new SimpleDateFormat("dd-MM-yy");
-        String date = currentDate.format(calForDate.getTime());
-
-        Calendar calForTime = Calendar.getInstance();
-        SimpleDateFormat currentTime = new SimpleDateFormat("hh:mm a");
-        String time = currentTime.format(calForTime.getTime());
-
-        NoticeData noticeData = new NoticeData(title,downloadUrl,date,time,uniqueKey);
-
-        dbRef.child(uniqueKey).setValue(noticeData).addOnSuccessListener(new OnSuccessListener<Void>() {
+        reference = reference.child(category);
+        final String uniqueKey = reference.push().getKey();
+        reference.child(uniqueKey).setValue(downloadUrl).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 pd.dismiss();
-                Toasty.success(UploadNotice.this, "Notice Uploaded", Toasty.LENGTH_SHORT).show();
-
+                Toasty.success(UploadImage.this, "Image Uploaded Successfully", Toasty.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 pd.dismiss();
-                Toasty.error(UploadNotice.this, "Something went wrong", Toasty.LENGTH_SHORT).show();
+                Toasty.error(UploadImage.this, "Something went wrong", Toasty.LENGTH_SHORT).show();
             }
         });
-
-
     }
 
     private void openGallery() {
         Intent pickImage = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(pickImage,REQ);
-
     }
 
     @Override
@@ -182,9 +178,7 @@ public class UploadNotice extends AppCompatActivity  {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            noticeImageView.setImageBitmap(bitmap);
+            galleryImageView.setImageBitmap(bitmap);
         }
     }
-
-
 }

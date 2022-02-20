@@ -1,4 +1,4 @@
-package com.example.admindashboard.otp;
+package com.example.admindashboard.activity.otp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

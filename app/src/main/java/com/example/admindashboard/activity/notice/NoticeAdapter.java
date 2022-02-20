@@ -1,4 +1,4 @@
-package com.example.admindashboard.notice;
+package com.example.admindashboard.activity.notice;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 import es.dmoral.toasty.Toasty;
 
-public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeViewAdapter> {
+    public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.NoticeViewAdapter> {
 
     private Context context;
     private ArrayList<NoticeData> list;
