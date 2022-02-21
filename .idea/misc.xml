@@ -3,17 +3,36 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/circel_news.xml" value="0.214" />
+        <entry key="app/src/main/res/drawable/class_bg.xml" value="0.1735" />
+        <entry key="app/src/main/res/drawable/class_bg_red.xml" value="0.1735" />
+        <entry key="app/src/main/res/drawable/ic_invoice.xml" value="0.1505" />
+        <entry key="app/src/main/res/layout/activity_add_result.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_add_student.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_add_teacher.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_delete_notice.xml" value="0.14447463768115942" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.14" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.10081053698074975" />
-        <entry key="app/src/main/res/layout/activity_otp_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_otp_verify.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_upload_image.xml" value="0.14447463768115942" />
-        <entry key="app/src/main/res/layout/activity_upload_notice.xml" value="0.20729166666666668" />
+        <entry key="app/src/main/res/layout/activity_invoice.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.40386571719226855" />
+        <entry key="app/src/main/res/layout/activity_old_pdf_print.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_otp.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_otp_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_otp_profile_aactivity.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/activity_otp_verify.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_pdf_creator_example.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/activity_update_result.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/activity_update_student.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_update_teacher.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_upload_image.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_upload_notice.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_upload_pdf.xml" value="0.14402173913043478" />
-        <entry key="app/src/main/res/layout/faculty_item_layout.xml" value="0.14402173913043478" />
+        <entry key="app/src/main/res/layout/activity_upload_result.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_uploadfaculty.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/activity_uploadstudent.xml" value="0.41354166666666664" />
+        <entry key="app/src/main/res/layout/faculty_item_layout.xml" value="0.67" />
         <entry key="app/src/main/res/layout/newss.xml" value="0.25" />
         <entry key="app/src/main/res/layout/no_data_found.xml" value="0.14402173913043478" />
+        <entry key="app/src/main/res/layout/stuent_item_layout.xml" value="0.33" />
       </map>
     </option>
   </component>

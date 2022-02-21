@@ -4,41 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.otp.OtpActivity"
+    android:layout_marginTop="100dp"
     android:padding="20dp"
-    android:layout_marginTop="100dp">
-
-
+    tools:context=".activity.otp.OtpActivity">
 
 
     <EditText
+        android:id="@+id/getPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/getPhoneNumber"
-        android:inputType="phone"
         android:digits="0123456789"
         android:ems="11"
-        android:hint="Enter Your PhoneNumber">
+        android:hint="Enter Your PhoneNumber"
+        android:inputType="phone">
 
     </EditText>
+
     <Button
+        android:id="@+id/sentOtp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/sentOtp"
-        android:text="Get Otp"
-        android:layout_below="@+id/getPhoneNumber">
+        android:layout_below="@+id/getPhoneNumber"
+        android:background="@drawable/class_bg"
+        android:text="Get Otp">
 
     </Button>
+
     <EditText
+        android:id="@+id/getOtp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/getOtp"
-        android:hint="Enter Your Otp Which You Get"
-        android:inputType="phone"
         android:layout_below="@+id/sentOtp"
-        android:digits="0123456789"
         android:layout_marginTop="15dp"
-        >
+        android:digits="0123456789"
+        android:hint="Enter Your Otp Which You Get"
+        android:inputType="phone">
 
     </EditText>
 
@@ -47,6 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/getOtp"
+        android:background="@drawable/class_bg"
         android:text="Verify Your Otp">
 
     </Button>

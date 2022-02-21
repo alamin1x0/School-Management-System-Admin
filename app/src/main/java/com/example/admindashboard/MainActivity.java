@@ -19,12 +19,14 @@ import com.example.admindashboard.activity.image.UploadImage;
 import com.example.admindashboard.activity.login.LoginActivity;
 import com.example.admindashboard.activity.notice.DeleteNoticeActivity;
 import com.example.admindashboard.activity.notice.UploadNotice;
+import com.example.admindashboard.activity.pdf.InvoiceActivity;
+import com.example.admindashboard.activity.result.UploadResult;
 import com.example.admindashboard.activity.student.Uploadstudent;
 import com.example.admindashboard.activity.teacher.Uploadfaculty;
 
-public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    CardView uploadNotice, addGalleryImage, addEbook, faculty, news, student,  delete, logout;
+    CardView uploadNotice, addGalleryImage, addEbook, faculty, result, student, invoice, delete, logout;
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -41,18 +43,18 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         sharedPreferences = this.getSharedPreferences("login", MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        if (sharedPreferences.getString("isLogin", "false").equals("false")){
+        if (sharedPreferences.getString("isLogin", "false").equals("false")) {
             openLogin();
 
         }
 
 
-        if (!isConnected())
-        {
+        if (!isConnected()) {
             new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setTitle("Internet Connection Please")
                     .setMessage("Please Check your Internet Connection")
+                    .setCancelable(false)
                     .setPositiveButton("Close", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -62,17 +64,13 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                     .show();
         }
 
-//        else {
-//            Toast.makeText(MainActivity.this,"", Toast.LENGTH_LONG).show();
-//        }
-
-
         uploadNotice = findViewById(R.id.addNotice);
         addGalleryImage = findViewById(R.id.addGalleryImage);
         addEbook = findViewById(R.id.addEbook);
         faculty = findViewById(R.id.faculty);
-        news = findViewById(R.id.news);
+        result = findViewById(R.id.result);
         student = findViewById(R.id.student);
+        invoice = findViewById(R.id.invoice);
         delete = findViewById(R.id.delete);
         logout = findViewById(R.id.logout);
 
@@ -80,7 +78,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         addGalleryImage.setOnClickListener(this);
         addEbook.setOnClickListener(this);
         faculty.setOnClickListener(this);
+        result.setOnClickListener(this);
         student.setOnClickListener(this);
+        invoice.setOnClickListener(this);
         delete.setOnClickListener(this);
         logout.setOnClickListener(this);
     }
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     @Override
     public void onClick(View view) {
         Intent intent;
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.addNotice:
                 intent = new Intent(MainActivity.this, UploadNotice.class);
                 startActivity(intent);
@@ -115,12 +115,20 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                 startActivity(intent);
                 break;
 
+            case R.id.result:
+                intent = new Intent(MainActivity.this, UploadResult.class);
+                startActivity(intent);
+                break;
 
             case R.id.student:
                 intent = new Intent(MainActivity.this, Uploadstudent.class);
                 startActivity(intent);
                 break;
 
+            case R.id.invoice:
+                intent = new Intent(MainActivity.this, InvoiceActivity.class);
+                startActivity(intent);
+                break;
 
 
             case R.id.delete:
@@ -139,8 +147,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     }
 
 
-    private boolean isConnected()
-    {
+    private boolean isConnected() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();

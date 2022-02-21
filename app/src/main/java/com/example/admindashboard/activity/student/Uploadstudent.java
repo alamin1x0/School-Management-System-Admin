@@ -26,8 +26,8 @@ public class Uploadstudent extends AppCompatActivity {
 
     FloatingActionButton fab;
     private RecyclerView class6, class7, class8, class9, class10;
-    private LinearLayout class6NoData,class7NoData, class8NoData, class9NoData, class10NoData;
-    private List<StudentData> list, list1, list2, list3,list4;
+    private LinearLayout class6NoData, class7NoData, class8NoData, class9NoData, class10NoData;
+    private List<StudentData> list, list1, list2, list3, list4;
     private StudentAdapter adapter;
 
     private DatabaseReference reference, dbRef;
@@ -54,20 +54,20 @@ public class Uploadstudent extends AppCompatActivity {
 
         reference = FirebaseDatabase.getInstance().getReference().child("student");
 
-       class6();
-       class7();
-       class8();
-       class9();
-       class10();
+        class6();
+        class7();
+        class8();
+        class9();
+        class10();
 
-       fab = findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
 
-       fab.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               startActivity(new Intent(Uploadstudent.this, AddStudent.class));
-           }
-       });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Uploadstudent.this, AddStudent.class));
+            }
+        });
     }
 
 
@@ -77,15 +77,15 @@ public class Uploadstudent extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list = new ArrayList<>();
-                if (!dataSnapshot.exists()){
+                if (!dataSnapshot.exists()) {
                     class6NoData.setVisibility(View.VISIBLE);
                     class6.setVisibility(View.GONE);
-                }else {
+                } else {
 
 
                     class6NoData.setVisibility(View.GONE);
                     class6.setVisibility(View.VISIBLE);
-                    for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         StudentData data = snapshot.getValue(StudentData.class);
                         list.add(data);
                     }
@@ -113,15 +113,15 @@ public class Uploadstudent extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list1 = new ArrayList<>();
-                if (!dataSnapshot.exists()){
+                if (!dataSnapshot.exists()) {
                     class7NoData.setVisibility(View.VISIBLE);
                     class7.setVisibility(View.GONE);
-                }else {
+                } else {
 
 
                     class7NoData.setVisibility(View.GONE);
                     class7.setVisibility(View.VISIBLE);
-                    for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         StudentData data = snapshot.getValue(StudentData.class);
                         list1.add(data);
                     }
@@ -149,15 +149,15 @@ public class Uploadstudent extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list2 = new ArrayList<>();
-                if (!dataSnapshot.exists()){
+                if (!dataSnapshot.exists()) {
                     class8NoData.setVisibility(View.VISIBLE);
                     class8.setVisibility(View.GONE);
-                }else {
+                } else {
 
 
                     class8NoData.setVisibility(View.GONE);
                     class8.setVisibility(View.VISIBLE);
-                    for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         StudentData data = snapshot.getValue(StudentData.class);
                         list2.add(data);
                     }
@@ -185,13 +185,13 @@ public class Uploadstudent extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list3 = new ArrayList<>();
-                if (!dataSnapshot.exists()){
+                if (!dataSnapshot.exists()) {
                     class9NoData.setVisibility(View.VISIBLE);
                     class9.setVisibility(View.GONE);
-                }else {
+                } else {
                     class9NoData.setVisibility(View.GONE);
                     class9.setVisibility(View.VISIBLE);
-                    for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         StudentData data = snapshot.getValue(StudentData.class);
                         list3.add(data);
                     }
@@ -219,13 +219,13 @@ public class Uploadstudent extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list4 = new ArrayList<>();
-                if (!dataSnapshot.exists()){
+                if (!dataSnapshot.exists()) {
                     class10NoData.setVisibility(View.VISIBLE);
                     class10.setVisibility(View.GONE);
-                }else {
+                } else {
                     class10NoData.setVisibility(View.GONE);
                     class10.setVisibility(View.VISIBLE);
-                    for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         StudentData data = snapshot.getValue(StudentData.class);
                         list4.add(data);
                     }

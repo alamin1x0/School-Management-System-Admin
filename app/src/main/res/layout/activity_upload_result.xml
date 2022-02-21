@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.student.Uploadstudent">
+    tools:context=".activity.result.UploadResult">
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -34,13 +34,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_marginTop="16dp"
                 android:background="@drawable/class_bg"
-                android:gravity="center"
-                android:padding="5dp"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
                 android:text="ক্লাস - ৬"
+                android:paddingTop="8dp"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <View
@@ -68,18 +68,17 @@
 
             </LinearLayout>
 
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_marginTop="16dp"
                 android:background="@drawable/class_bg"
-                android:gravity="center"
-                android:padding="5dp"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
                 android:text="ক্লাস - ৭"
+                android:paddingTop="8dp"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <View
@@ -112,13 +111,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_marginTop="16dp"
                 android:background="@drawable/class_bg"
-                android:gravity="center"
-                android:padding="5dp"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
                 android:text="ক্লাস - ৮"
+                android:paddingTop="8dp"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <View
@@ -127,6 +126,8 @@
                 android:layout_margin="10dp"
                 android:layout_marginVertical="8dp"
                 android:background="#c1c1c1" />
+
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/class8"
@@ -146,18 +147,17 @@
 
             </LinearLayout>
 
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_marginTop="16dp"
                 android:background="@drawable/class_bg"
-                android:gravity="center"
-                android:padding="5dp"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
                 android:text="ক্লাস - ৯"
+                android:paddingTop="8dp"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <View
@@ -166,6 +166,7 @@
                 android:layout_margin="10dp"
                 android:layout_marginVertical="8dp"
                 android:background="#c1c1c1" />
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/class9"
@@ -185,18 +186,17 @@
 
             </LinearLayout>
 
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_marginTop="16dp"
                 android:background="@drawable/class_bg"
-                android:gravity="center"
-                android:padding="5dp"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
                 android:text="ক্লাস - ১০"
+                android:paddingTop="8dp"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <View

@@ -9,16 +9,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/addStudentImage"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/pro"
             android:layout_gravity="center"
-            android:layout_marginTop="36dp"/>
+            android:layout_marginTop="36dp"
+            android:src="@drawable/pro" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint=" স্টুডেন্ট  নাম"
-                android:inputType="text"/>
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="  স্টুডেন্ট  রোল"
-                android:inputType="text"/>
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -61,29 +61,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint=" স্টুডেন্ট  অ্যাড্রেস"
-                android:inputType="text"/>
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
-
-
 
 
         <Spinner
 
+            android:id="@+id/addStudentCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/addStudentCategory"
-            android:spinnerMode="dropdown"
+            android:layout_marginVertical="16dp"
             android:background="@android:drawable/btn_dropdown"
             android:gravity="center"
-            android:layout_marginVertical="16dp"/>
+            android:spinnerMode="dropdown" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/addStudentBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" এড  স্টুডেন্ট "
             android:layout_marginTop="16dp"
-            android:textAllCaps="false"/>
+            android:background="@drawable/class_bg"
+            android:text=" এড  স্টুডেন্ট "
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>

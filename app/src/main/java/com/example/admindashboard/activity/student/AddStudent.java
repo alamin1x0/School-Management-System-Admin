@@ -70,8 +70,8 @@ public class AddStudent extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference();
 
 
-        String[] items = new String[]{"Select Category","Class 6","Class 7","Class 8","Class 9", "Class 10"};
-        addStudentCategory.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,items));
+        String[] items = new String[]{"Select Category", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10"};
+        addStudentCategory.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items));
 
         addStudentCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -105,20 +105,20 @@ public class AddStudent extends AppCompatActivity {
         phone = addStudentPhone.getText().toString();
         address = addStudentAddress.getText().toString();
 
-        if (name.isEmpty()){
+        if (name.isEmpty()) {
             addStudentName.setError("Empty");
             addStudentName.requestFocus();
-        }else if(phone.isEmpty()){
+        } else if (phone.isEmpty()) {
             addStudentPhone.setError("Empty");
             addStudentPhone.requestFocus();
-        }else if (address.isEmpty()){
+        } else if (address.isEmpty()) {
             addStudentAddress.setError("Empty");
             addStudentAddress.requestFocus();
-        }else if (category.equals("Select Category")){
+        } else if (category.equals("Select Category")) {
             Toast.makeText(this, "Please provide student category", Toast.LENGTH_SHORT).show();
-        }else if (bitmap == null){
+        } else if (bitmap == null) {
             insertData();
-        }else {
+        } else {
             uploadImage();
         }
     }
@@ -128,15 +128,15 @@ public class AddStudent extends AppCompatActivity {
         pd.setMessage("Uploading......");
         pd.show();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,50,baos);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
         byte[] finalimg = baos.toByteArray();
         final StorageReference filePath;
-        filePath = storageReference.child("Students").child(finalimg+"jpg");
+        filePath = storageReference.child("Students").child(finalimg + "jpg");
         final UploadTask uploadTask = filePath.putBytes(finalimg);
         uploadTask.addOnCompleteListener(AddStudent.this, new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
                     uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -150,7 +150,7 @@ public class AddStudent extends AppCompatActivity {
                             });
                         }
                     });
-                }else {
+                } else {
                     pd.dismiss();
                     Toast.makeText(AddStudent.this, "Something went wrong", Toast.LENGTH_LONG).show();
                 }
@@ -166,7 +166,6 @@ public class AddStudent extends AppCompatActivity {
 
         dbRef = reference.child(category);
         final String uniqueKey = dbRef.push().getKey();
-
 
         StudentData studentData = new StudentData(name, phone, address, downloadUrl, uniqueKey);
 
@@ -189,16 +188,16 @@ public class AddStudent extends AppCompatActivity {
 
     private void openGallery() {
         Intent pickImage = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(pickImage,REQ);
+        startActivityForResult(pickImage, REQ);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQ && resultCode == RESULT_OK){
+        if (requestCode == REQ && resultCode == RESULT_OK) {
             Uri uri = data.getData();
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
             } catch (IOException e) {
                 e.printStackTrace();
             }

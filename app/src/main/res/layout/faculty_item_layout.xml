@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp">
@@ -20,45 +19,44 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.5"
+                android:gravity="center_vertical"
                 android:orientation="vertical"
-                android:paddingLeft="12dp"
-                android:gravity="center_vertical">
+                android:paddingLeft="12dp">
 
                 <TextView
+                    android:id="@+id/teacherName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/teacherName"
                     android:text="আল-আমিন"
                     android:textColor="@color/textColor"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
 
 
                 <TextView
+                    android:id="@+id/teacherPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/teacherPhone"
                     android:text="০১৭৬২৮৬৮৮৬৪"
                     android:textColor="@color/textColor"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
 
 
                 <TextView
+                    android:id="@+id/teacherPost"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/teacherPost"
                     android:text="পদবি"
                     android:textColor="@color/textColor"
-                    android:textSize="18sp"/>
-
+                    android:textSize="18sp" />
 
 
                 <TextView
+                    android:id="@+id/teacherJon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/teacherJon"
                     android:text="জয়েন ডেট"
                     android:textColor="@color/textColor"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/teacherUpdate"
@@ -66,6 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="3dp"
+                    android:textStyle="bold"
                     android:text="আপডেট" />
 
             </LinearLayout>
@@ -75,9 +74,9 @@
                 android:id="@+id/teacherImage"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
-                android:src="@drawable/pro"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="0.5"/>
+                android:layout_weight="0.5"
+                android:src="@drawable/pro" />
 
         </LinearLayout>
 

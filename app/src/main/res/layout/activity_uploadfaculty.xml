@@ -8,15 +8,16 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/fab"
         style="@style/Widget.Design.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
         android:src="@drawable/ic_add"
         app:elevation="3dp"
-        app:fabSize="normal"/>
+        app:tint="@color/white"
+        app:fabSize="normal" />
 
 
     <androidx.core.widget.NestedScrollView
@@ -32,178 +33,195 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/class_bg"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
                 android:text="প্রধান শিক্ষক"
-                android:gravity="center"
-                android:textSize="30sp"
-                android:textColor="@color/departmentColor"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"/>
+                android:paddingTop="8dp"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_margin="10dp"
                 android:layout_marginVertical="8dp"
-                android:background="#c1c1c1"/>
+                android:background="#c1c1c1" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/headTeacher"
-                android:visibility="gone"
-                android:nestedScrollingEnabled="false"/>
-
-            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/headNoData">
-                <include layout="@layout/no_data_found"/>
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/headNoData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/no_data_found" />
 
 
             </LinearLayout>
 
 
-
-
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/class_bg"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
                 android:text="বিজ্ঞান বিভাগ"
-                android:gravity="center"
-                android:textSize="30sp"
-                android:textColor="@color/departmentColor"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"/>
+                android:paddingTop="8dp"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_margin="10dp"
                 android:layout_marginVertical="8dp"
-                android:background="#c1c1c1"/>
+                android:background="#c1c1c1" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/csDepartment"
-                android:visibility="gone"
-                android:nestedScrollingEnabled="false"/>
-
-            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/csNoData">
-                <include layout="@layout/no_data_found"/>
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/csNoData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/no_data_found" />
 
 
             </LinearLayout>
 
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/class_bg"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
                 android:text="মানবিক বিভাগ"
-                android:gravity="center"
-                android:textSize="30sp"
-                android:textColor="@color/departmentColor"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"/>
+                android:paddingTop="8dp"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_margin="10dp"
                 android:layout_marginVertical="8dp"
-                android:background="#c1c1c1"/>
+                android:background="#c1c1c1" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/mechanicalDepartment"
-                android:visibility="gone"
-                android:nestedScrollingEnabled="false"/>
-
-            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/mecNoData">
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone" />
 
-                <include layout="@layout/no_data_found"/>
+            <LinearLayout
+                android:id="@+id/mecNoData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/no_data_found" />
 
 
             </LinearLayout>
 
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/class_bg"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
                 android:text="বাণিজ্য বিভাগ"
-                android:gravity="center"
-                android:textSize="30sp"
-                android:textColor="@color/departmentColor"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"/>
+                android:paddingTop="8dp"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_margin="10dp"
                 android:layout_marginVertical="8dp"
-                android:background="#c1c1c1"/>
+                android:background="#c1c1c1" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/physicsDepartment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/physicsDepartment"
-                android:visibility="gone"
-                android:nestedScrollingEnabled="false"/>
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone" />
 
             <LinearLayout
+                android:id="@+id/phyNoData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/phyNoData">
+                android:orientation="vertical">
 
-                <include layout="@layout/no_data_found"/>
+                <include layout="@layout/no_data_found" />
 
 
             </LinearLayout>
-
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/class_bg"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
                 android:text="আইসিটি বিভাগ"
-                android:gravity="center"
-                android:textSize="30sp"
-                android:textColor="@color/departmentColor"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"/>
+                android:paddingTop="8dp"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_margin="10dp"
                 android:layout_marginVertical="8dp"
-                android:background="#c1c1c1"/>
+                android:background="#c1c1c1" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/chmesityDepartment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/chmesityDepartment"
-                android:visibility="gone"
-                android:nestedScrollingEnabled="false"/>
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone" />
 
             <LinearLayout
+                android:id="@+id/chNoData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/chNoData">
+                android:orientation="vertical">
 
-                <include layout="@layout/no_data_found"/>
+                <include layout="@layout/no_data_found" />
 
 
             </LinearLayout>
-
 
 
         </LinearLayout>

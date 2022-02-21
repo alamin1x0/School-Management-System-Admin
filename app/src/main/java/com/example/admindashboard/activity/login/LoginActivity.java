@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private RelativeLayout loginBtn;
 
 
-    private  String email, pass;
+    private String email, pass;
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         sharedPreferences = this.getSharedPreferences("login", MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        if (sharedPreferences.getString("isLogin", "false").equals("yes")){
+        if (sharedPreferences.getString("isLogin", "false").equals("yes")) {
             openDash();
 
         }
@@ -54,10 +54,10 @@ public class LoginActivity extends AppCompatActivity {
         tvShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (userPass.getInputType()== 144){
+                if (userPass.getInputType() == 144) {
                     userPass.setInputType(129);
                     tvShow.setText("Hide");
-                }else {
+                } else {
                     userPass.setInputType(144);
                     tvShow.setText("Show");
                 }
@@ -77,17 +77,17 @@ public class LoginActivity extends AppCompatActivity {
         email = userEmail.getText().toString();
         pass = userPass.getText().toString();
 
-        if (email.isEmpty()){
+        if (email.isEmpty()) {
             userEmail.setError("Required");
             userEmail.requestFocus();
-        }else if (pass.isEmpty()){
+        } else if (pass.isEmpty()) {
             userPass.setError("Required");
             userPass.requestFocus();
-        }else if (email.equals("admin@gmail.com") && pass.equals("123456")){
+        } else if (email.equals("admin@gmail.com") && pass.equals("123456")) {
             editor.putString("isLogin", "yes");
             editor.commit();
             openDash();
-        }else {
+        } else {
             Toasty.error(this, "Please Check email and password again!", Toasty.LENGTH_SHORT).show();
         }
     }

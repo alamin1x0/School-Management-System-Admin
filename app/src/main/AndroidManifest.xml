@@ -14,6 +14,25 @@
         android:roundIcon="@mipmap/admin_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdminDashboard">
+        <activity
+            android:name=".activity.pdf.OldPdfPrintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.pdf.InvoiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.result.UploadResult"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.result.UpdateResult"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.result.AddResult"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity android:name=".activity.otp.OtpVerifyActivity" />
         <activity android:name=".activity.otp.OtpProfileAactivity" />
         <activity android:name=".activity.otp.OtpMainActivity" />
@@ -30,8 +49,6 @@
             android:name=".activity.student.Uploadstudent"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" />
-
-
         <activity
             android:name=".activity.login.LoginActivity"
             android:exported="true">
@@ -41,8 +58,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".activity.notice.DeleteNoticeActivity"
             android:parentActivityName=".MainActivity"
