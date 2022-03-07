@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/circel_news.xml" value="0.214" />
+        <entry key="app/src/main/res/drawable/circle_student.xml" value="0.214" />
         <entry key="app/src/main/res/drawable/class_bg.xml" value="0.1735" />
         <entry key="app/src/main/res/drawable/class_bg_red.xml" value="0.1735" />
         <entry key="app/src/main/res/drawable/ic_group.xml" value="0.1785" />
