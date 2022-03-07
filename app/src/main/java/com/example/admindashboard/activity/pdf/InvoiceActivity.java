@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.admindashboard.R;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +31,8 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import es.dmoral.toasty.Toasty;
 
 public class InvoiceActivity extends AppCompatActivity {
 
@@ -76,6 +79,26 @@ public class InvoiceActivity extends AppCompatActivity {
         saveAndPrintButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String name = editTextName.getText().toString();
+                String price = editTextQty.getText().toString();
+
+                if (name.isEmpty()) {
+                    editTextName.setError("গ্রাহকের নাম");
+                    editTextName.requestFocus();
+                    Toasty.error(InvoiceActivity.this, "গ্রাহকের নাম", Toasty.LENGTH_SHORT).show();
+                    return;
+                }
+                if (price.isEmpty()) {
+                    editTextQty.setError("পরিমান");
+                    editTextQty.requestFocus();
+                    Toasty.error(InvoiceActivity.this, "পরিমান", Toasty.LENGTH_SHORT).show();
+                    return;
+                } else {
+
+                }
+
+
                 pdfModel.invoiceNo = invoiceNo + 1;
                 pdfModel.customerName = String.valueOf(editTextName.getText());
                 pdfModel.date = new Date().getTime();
@@ -86,6 +109,8 @@ public class InvoiceActivity extends AppCompatActivity {
                 myRef.child(String.valueOf(invoiceNo + 1)).setValue(pdfModel);
 
                 printPDF();
+
+                Toasty.success(InvoiceActivity.this, "ইনভয়েস সেভ এবং প্রিন্ট সফল হয়েছে", Toasty.LENGTH_SHORT).show();
             }
         });
 
@@ -112,22 +137,22 @@ public class InvoiceActivity extends AppCompatActivity {
         paint.setTextSize(15.5f);
         paint.setColor(Color.rgb(0, 50, 250));
 
-        canvas.drawText("Developer Al-Amin", 20, 20, paint);
+        canvas.drawText("শ্যামপুর উচ্চ বিদ্যালয়", 20, 20, paint);
         paint.setTextSize(8.5f);
-        canvas.drawText("MR. No. 2, Joypurhat", 20, 40, paint);
-        canvas.drawText("Sakib 901253", 20, 55, paint);
+        canvas.drawText("স্থাপন: ১৯৬৪ সাল  ", 20, 40, paint);
+        canvas.drawText("পুরানাপইল, জয়পুরহাট সাদর", 20, 55, paint);
         forLinePaint.setStyle(Paint.Style.STROKE);
         forLinePaint.setPathEffect(new DashPathEffect(new float[]{5, 5}, 0));
         forLinePaint.setStrokeWidth(2);
         canvas.drawLine(20, 65, 230, 65, forLinePaint);
 
-        canvas.drawText("Customer Name: " + editTextName.getText(), 20, 80, paint);
+        canvas.drawText("শিক্ষার্থীর নাম: " + editTextName.getText(), 20, 80, paint);
         canvas.drawLine(20, 90, 230, 90, forLinePaint);
 
-        canvas.drawText("Purchase: ", 20, 105, paint);
+        canvas.drawText("ক্রয়: ", 20, 105, paint);
 
         canvas.drawText(spinner.getSelectedItem().toString(), 20, 135, paint);
-        canvas.drawText(editTextQty.getText() + " Pice", 120, 135, paint);
+        canvas.drawText(editTextQty.getText() + "পিচ ", 120, 135, paint);
 
         double amount = itemPrice[spinner.getSelectedItemPosition()] * Double.parseDouble(editTextQty.getText().toString());
         paint.setTextAlign(Paint.Align.RIGHT);
@@ -135,7 +160,7 @@ public class InvoiceActivity extends AppCompatActivity {
         paint.setTextAlign(Paint.Align.LEFT);
 
         canvas.drawText("+%", 20, 175, paint);
-        canvas.drawText("Tax 5%", 120, 175, paint);
+        canvas.drawText("ভ্যাট 5%", 120, 175, paint);
         paint.setTextAlign(Paint.Align.RIGHT);
         canvas.drawText(decimalFormat.format(amount * 0 / 100), 230, 175, paint);
         paint.setTextAlign(Paint.Align.LEFT);
@@ -143,23 +168,23 @@ public class InvoiceActivity extends AppCompatActivity {
         canvas.drawLine(20, 210, 230, 210, forLinePaint);
 
         paint.setTextSize(10f);
-        canvas.drawText("Total", 120, 225, paint);
+        canvas.drawText("মোট ", 120, 225, paint);
         paint.setTextAlign(Paint.Align.RIGHT);
         canvas.drawText(decimalFormat.format((amount * 5 / 100) + amount), 230, 225, paint);
         paint.setTextAlign(Paint.Align.LEFT);
         paint.setTextSize(8.5f);
 
-        canvas.drawText("Date: " + datePatternformat.format(new Date().getTime()), 20, 260, paint);
+        canvas.drawText("তারিখ: " + datePatternformat.format(new Date().getTime()), 20, 260, paint);
         canvas.drawText(String.valueOf(invoiceNo + 1), 20, 275, paint);
-        canvas.drawText("Payment Method Cash", 20, 290, paint);
+        canvas.drawText("পেমেন্ট পদ্ধতি নগদ", 20, 290, paint);
 
 
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setTextSize(12f);
-        canvas.drawText("Thank you!", canvas.getWidth() / 2, 320, paint);
+        canvas.drawText("ধন্যবাদ!", canvas.getWidth() / 2, 320, paint);
 
         mypdfDocument.finishPage(myPage);
-        File file = new File(this.getExternalFilesDir("/"), "Developer alamin.pdf");
+        File file = new File(this.getExternalFilesDir("/"), "শ্যামপুর উচ্চ বিদ্যালয়.pdf");
 
         try {
             mypdfDocument.writeTo(new FileOutputStream(file));
@@ -172,19 +197,16 @@ public class InvoiceActivity extends AppCompatActivity {
 
     }
 
-
     private void callFindViewById() {
-
         saveAndPrintButton = findViewById(R.id.btnSaveAndPrint);
         printbutton = findViewById(R.id.btnPrint);
         editTextName = findViewById(R.id.editTextName);
         editTextQty = findViewById(R.id.editTextQty);
         spinner = findViewById(R.id.spinner);
 
-        itemList = new String[]{"phone", "laptop"};
+        itemList = new String[]{"ফোন ", "ল্যাপটপ "};
         itemPrice = new double[]{1200.00, 38000.00};
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, itemList);
         spinner.setAdapter(adapter);
-
     }
 }

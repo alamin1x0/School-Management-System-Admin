@@ -15,10 +15,27 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:ems="10"
-        android:hint="Customer Name"
+        android:hint="শিক্ষার্থীর নাম :"
+        android:imeOptions="actionNext"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="32dp" />
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/editTextRoll"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@id/editTextName"-->
+    <!--        android:layout_marginStart="20dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:layout_marginEnd="20dp"-->
+    <!--        android:layout_marginBottom="20dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="শিক্ষার্থীর রোল :"-->
+    <!--        android:imeOptions="actionNext"-->
+    <!--        android:inputType="textPersonName"-->
+    <!--        tools:layout_editor_absoluteX="16dp"-->
+    <!--        tools:layout_editor_absoluteY="32dp" />-->
 
     <Spinner
         android:id="@+id/spinner"
@@ -44,7 +61,8 @@
         android:layout_toEndOf="@+id/spinner"
         android:layout_toRightOf="@+id/spinner"
         android:ems="10"
-        android:hint="Quantity"
+        android:hint="পরিমান"
+        android:imeOptions="actionDone"
         android:inputType="numberDecimal" />
 
     <Button
@@ -57,7 +75,12 @@
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="40dp"
-        android:text="Save and Print" />
+        android:background="@drawable/class_bg"
+        android:text="সেভ এবং প্রিন্ট"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnPrint"
@@ -69,6 +92,10 @@
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/btnSaveAndPrint"
         android:layout_toRightOf="@+id/btnSaveAndPrint"
-        android:text="Print" />
+        android:background="@drawable/class_bg"
+        android:text="প্রিন্ট"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
